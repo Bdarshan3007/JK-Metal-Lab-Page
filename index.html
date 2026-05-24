@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>JK Metal Lab - Spectrometer Testing Services</title>
+  <link rel="icon" type="image/png" href="jk_logo.png" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Tailwind Config -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#3de273",
+            "outline": "#757684",
+            "secondary-fixed-dim": "#ffb4ab",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#2cd769",
+            "inverse-on-surface": "#eaf1ff",
+            "surface-dim": "#cbd5e1",
+            "surface-container-high": "#e2e8f0",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8fafc",
+            "tertiary": "#003e18",
+            "surface-variant": "#e2e8f0",
+            "surface-alt": "#f1f5f9",
+            "border-subtle": "#cbd5e1",
+            "primary-fixed-dim": "#b8c4ff",
+            "on-background": "#0f172a",
+            "on-surface-variant": "#475569",
+            "secondary-container": "#C82828",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#dde1ff",
+            "on-tertiary-fixed": "#002109",
+            "inverse-surface": "#1e293b",
+            "on-primary-fixed-variant": "#173bab",
+            "outline-variant": "#94a3b8",
+            "on-primary-container": "#a8b8ff",
+            "primary": "#2D3B8E",
+            "surface-container-low": "#f8fafc",
+            "whatsapp-green": "#25D366",
+            "surface-tint": "#2D3B8E",
+            "on-secondary-fixed-variant": "#93000b",
+            "primary-container": "#1e40af",
+            "surface-container": "#f1f5f9",
+            "surface": "#ffffff",
+            "tertiary-fixed": "#66ff8e",
+            "on-error-container": "#93000a",
+            "secondary": "#C82828",
+            "on-secondary-fixed": "#410002",
+            "inverse-primary": "#b8c4ff",
+            "on-primary-fixed": "#001453",
+            "tertiary-container": "#005825",
+            "background": "#f8fafc",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-surface": "#0f172a",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#005322",
+            "secondary-fixed": "#ffdad6",
+            "on-secondary-container": "#fffbff",
+            "surface-container-highest": "#cbd5e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "header-height": "70px",
+            "margin-mobile": "20px",
+            "section-padding": "80px",
+            "container-max-width": "1280px"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-bold": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "caption": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["44px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "headline-xl": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "headline-md": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
+
+    /* Custom Floating and Glowing styles for industrial look */
+    .glow-primary {
+      box-shadow: 0 0 15px rgba(45, 59, 142, 0.15);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .glow-primary:focus-within {
+      box-shadow: 0 0 20px rgba(45, 59, 142, 0.3);
+    }
+
+    /* Hero Section Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Gradient border for cards */
+    .gradient-border-card {
+      position: relative;
+      border-radius: 1rem;
+      background: linear-gradient(to bottom right, rgba(45, 59, 142, 0.15), rgba(200, 40, 40, 0.15));
+      padding: 1px;
+      transition: all 0.3s ease;
+    }
+    .gradient-border-card:hover {
+      background: linear-gradient(to bottom right, rgba(45, 59, 142, 0.35), rgba(200, 40, 40, 0.35));
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.15);
+    }
+    .gradient-border-card-inner {
+      background: white;
+      border-radius: 0.95rem;
+      height: 100%;
+    }
+
+    /* Smooth scrolling for better UX */
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 640px) {
+      .reveal, .reveal-left, .reveal-right {
+        transition-duration: 0.6s;
+      }
+      
+      button, a {
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+
+    /* Prevent layout shift */
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-background font-body-md antialiased w-full max-w-full overflow-x-hidden selection:bg-primary selection:text-on-primary">
+  <!-- TopAppBar -->
+  <header
+    class="bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-md fixed top-0 w-full h-[70px] z-50 flex items-center border-b border-border-subtle dark:border-outline shadow-sm">
+    <div class="max-w-container-max-width mx-auto flex justify-between items-center px-4 sm:px-margin-mobile md:px-gutter w-full">
+      <a class="flex items-center gap-3 hover:opacity-90 transition-opacity"
+        href="#">
+        <img src="jk_logo.png" alt="JK Logo" class="h-14 w-14 object-contain rounded-md shadow-sm border border-slate-200/50" />
+        <img src="jkmetalab.svg" alt="JK Metal Lab" class="h-16 w-auto" />
+      </a>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a class="text-secondary dark:text-secondary-fixed-dim font-bold border-b-2 border-secondary pb-1"
+          href="#home">Home</a>
+        <a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors pb-1"
+          href="#machines">Machines</a>
+        <a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors pb-1"
+          href="#services">Services</a>
+        <a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors pb-1"
+          href="#process">Process</a>
+        <a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors pb-1"
+          href="#contact">Contact</a>
+      </nav>
+      <!-- Actions -->
+      <div class="flex items-center gap-4">
+        <button class="hidden md:flex hover:scale-105 transition-transform duration-300 text-on-surface-variant">
+          <span class="material-symbols-outlined">call</span>
+        </button>
+        <button class="hidden md:flex hover:scale-105 transition-transform duration-300 text-on-surface-variant">
+          <span class="material-symbols-outlined">location_on</span>
+        </button>
+        <a class="hidden md:flex items-center gap-2 bg-whatsapp-green text-on-tertiary px-4 py-2 rounded-lg font-label-bold text-label-bold hover:shadow-md transition-all duration-300 scale-102"
+          href="#">
+          <span class="material-symbols-outlined">chat</span>
+          WhatsApp
+        </a>
+      
+      </div>
+    </div>
+  </header>
+  <main class="pt-[70px] pb-[80px] md:pb-0">
+    <!-- Hero Section -->
+    <section class="relative bg-slate-950 overflow-hidden border-b border-slate-900" id="home">
+      <!-- High-Tech Industrial Foundry Background Image -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-overlay" 
+        style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80');"></div>
+      <!-- Glowing background gradient -->
+      <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/95 to-primary/30"></div>
+      <!-- Technical Grid Overlay -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]"></div>
+      
+      <!-- Animated Background Blobs -->
+      <div class="absolute top-1/4 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-secondary/15 rounded-full blur-3xl opacity-40 animate-pulse" style="animation-delay: 1.5s;"></div>
+
+      <div class="max-w-container-max-width mx-auto px-4 sm:px-margin-mobile md:px-gutter py-16 sm:py-20 md:py-28 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 relative z-10">
+        <div class="flex-1 space-y-6 text-left">
+          <div class="inline-block animate-fade-in" style="animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 text-blue-300 rounded-full border border-primary/30 backdrop-blur-md font-label-bold text-caption shadow-lg shadow-black/20">
+              <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              Advanced OES Technology
+            </div>
+          </div>
+
+          <h1 class="font-headline-xl-mobile text-headline-xl-mobile md:font-headline-xl md:text-headline-xl text-white leading-tight animate-fade-in"
+            style="animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;">
+            Precision Metal Analysis <span class="text-blue-400 block mt-1">You Can Trust.</span>
+          </h1>
+          
+          <p class="font-body-lg text-body-lg text-slate-300 max-w-2xl animate-fade-in"
+            style="animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;">
+            Advanced OES Spectrometer testing for ferrous and non-ferrous metals. Fast, accurate, and certified reports delivered directly to your workshop.
+          </p>
+          
+          <ul class="space-y-3 font-body-md text-slate-300 animate-fade-in" style="animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;">
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-whatsapp-green text-xl">check_circle</span>
+              Same-day reporting available
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-whatsapp-green text-xl">check_circle</span>
+              ISO Certified facility
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-whatsapp-green text-xl">check_circle</span>
+              Expert metallurgical consultation
+            </li>
+          </ul>
+          
+          <div class="pt-4 flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;">
+            <button class="bg-secondary hover:bg-red-700 text-white px-8 py-4 rounded-lg font-label-bold text-label-bold transition-all duration-300 shadow-[0_4px_20px_rgba(200,40,40,0.4)] hover:shadow-[0_8px_30px_rgba(200,40,40,0.6)] hover:scale-[1.03] active:scale-[0.98]">
+              Get a Free Quote
+            </button>
+            <button class="border-2 border-slate-700 hover:border-slate-500 text-slate-200 hover:text-white px-8 py-4 rounded-lg font-label-bold text-label-bold hover:bg-white/5 transition-all duration-300 active:scale-[0.98]">
+              View Testing Standards
+            </button>
+          </div>
+        </div>
+        
+        <div class="flex-1 relative w-full aspect-square md:aspect-auto lg:min-h-[480px] flex items-center justify-center">
+          <!-- Background decoration -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-2xl transform rotate-3 scale-105 animate-float opacity-30"></div>
+          
+          <!-- Outer border/glowing display box -->
+          <div class="relative w-full max-w-[500px] bg-slate-900/50 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-[0_24px_50px_rgba(0,0,0,0.4)] animate-fade-in"
+            style="animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;">
+            
+            <!-- Inside White image card for blend-multiply alignment -->
+            <div class="relative w-full h-[300px] md:h-[350px] bg-white rounded-xl overflow-hidden shadow-inner border border-slate-200/50 p-6 flex items-center justify-center">
+              <img alt="OES Spectrometer Machine" class="object-contain w-full h-full mix-blend-multiply hover:scale-105 transition-transform duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvyPinKx6d2XErKx8TSxkjxuWdsyuiMElEv2dfv2C2TjaPyI3sB2_r2Q2cVwRjiKLFOQwJk4-cf7DrmzzqMWvyXUtOC7pQFlzHYJxOzIeRhPdf9H_1qSwkahsMcK0bbbbIRMUYX1VwWScLxuT851NzyAs5R6rVwGxi-Sdhb0WaysBnXpdll6be_sTCPs_zkhRzP-TPTnqn1DCEeOZ8P3cR4fIUsYR1_QdfSn9ZRtmIuKuA35a0OMGb3gk3DpXOWpiDPO6G_cq_Lto" />
+            </div>
+
+            <!-- Floating Badges in Glassmorphism style -->
+            <div class="absolute top-10 left-10 bg-slate-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-800/80 shadow-lg flex items-center gap-3 animate-float"
+              style="animation: float 4s ease-in-out infinite;">
+              <span class="material-symbols-outlined text-orange-500">speed</span>
+              <div class="flex flex-col text-left">
+                <span class="font-label-bold text-caption text-slate-100">Analysis Speed</span>
+                <span class="font-body-md text-caption text-slate-400">&lt; 30 Seconds</span>
+              </div>
+            </div>
+            
+            <div class="absolute bottom-10 right-10 bg-slate-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-800/80 shadow-lg flex items-center gap-3 animate-float"
+              style="animation: float 4s ease-in-out infinite 1.5s;">
+              <span class="material-symbols-outlined text-blue-400">verified</span>
+              <div class="flex flex-col text-left">
+                <span class="font-label-bold text-caption text-slate-100">Accuracy</span>
+                <span class="font-body-md text-caption text-slate-400">0.001% Precision</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Machine Section -->
+    <section class="bg-surface-alt py-section-padding px-4 sm:px-margin-mobile md:px-gutter border-y border-border-subtle"
+      id="machines">
+      <div class="max-w-container-max-width mx-auto">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Our Technology</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">State-of-the-art SpectroLab OES
+            equipment ensuring unparalleled analytical performance for complex metal matrices.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div
+            class="bg-surface rounded-2xl p-8 border border-border-subtle shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex justify-center items-center reveal-left">
+            <img alt="OES Spectrometer Detail" class="w-full max-w-md object-contain mix-blend-multiply hover:scale-102 transition-transform duration-500"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvyPinKx6d2XErKx8TSxkjxuWdsyuiMElEv2dfv2C2TjaPyI3sB2_r2Q2cVwRjiKLFOQwJk4-cf7DrmzzqMWvyXUtOC7pQFlzHYJxOzIeRhPdf9H_1qSwkahsMcK0bbbbIRMUYX1VwWScLxuT851NzyAs5R6rVwGxi-Sdhb0WaysBnXpdll6be_sTCPs_zkhRzP-TPTnqn1DCEeOZ8P3cR4fIUsYR1_QdfSn9ZRtmIuKuA35a0OMGb3gk3DpXOWpiDPO6G_cq_Lto" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-right">
+            <!-- Feature Card 1 -->
+            <div class="gradient-border-card">
+              <div class="gradient-border-card-inner p-6">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 text-primary">
+                  <span class="material-symbols-outlined">lens_blur</span>
+                </div>
+                <h3 class="font-label-bold text-body-lg mb-2 text-on-surface">Optical System</h3>
+                <p class="font-body-md text-caption text-on-surface-variant">High-resolution UV optics for precise
+                  detection of critical elements like C, P, S, N.</p>
+              </div>
+            </div>
+            <!-- Feature Card 2 -->
+            <div class="gradient-border-card">
+              <div class="gradient-border-card-inner p-6">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 text-secondary">
+                  <span class="material-symbols-outlined">bolt</span>
+                </div>
+                <h3 class="font-label-bold text-body-lg mb-2 text-on-surface">Spark Generator</h3>
+                <p class="font-body-md text-caption text-on-surface-variant">Digitally controlled spark source optimized
+                  for various alloy types.</p>
+              </div>
+            </div>
+            <!-- Feature Card 3 -->
+            <div class="gradient-border-card">
+              <div class="gradient-border-card-inner p-6">
+                <div
+                  class="w-12 h-12 bg-tertiary-container/10 rounded-lg flex items-center justify-center mb-4 text-tertiary-container">
+                  <span class="material-symbols-outlined">analytics</span>
+                </div>
+                <h3 class="font-label-bold text-body-lg mb-2 text-on-surface">Data Processing</h3>
+                <p class="font-body-md text-caption text-on-surface-variant">Advanced software algorithms for complex
+                  matrix corrections and interference removal.</p>
+              </div>
+            </div>
+            <!-- Feature Card 4 -->
+            <div class="gradient-border-card">
+              <div class="gradient-border-card-inner p-6">
+                <div
+                  class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-4 text-primary-container">
+                  <span class="material-symbols-outlined">memory</span>
+                </div>
+                <h3 class="font-label-bold text-body-lg mb-2 text-on-surface">Calibration</h3>
+                <p class="font-body-md text-caption text-on-surface-variant">Factory calibrated with premium certified
+                  reference materials for immediate accuracy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services -->
+    <section class="py-section-padding px-4 sm:px-margin-mobile md:px-gutter max-w-container-max-width mx-auto" id="services">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Analytical Services</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Comprehensive testing bases for a
+          wide range of industrial applications.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service Cards -->
+        <div
+          class="bg-surface p-6 rounded-xl border border-border-subtle hover:border-primary/40 hover:shadow-[0_12px_30px_rgba(45,59,142,0.08)] hover:-translate-y-1.5 transition-all duration-300 group reveal delay-100">
+          <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">construction</span>
+          </div>
+          <h3 class="font-label-bold text-body-md text-on-surface mb-2">Ferrous Alloys</h3>
+          <p class="font-body-md text-caption text-on-surface-variant">Carbon, low-alloy, and stainless steels.</p>
+        </div>
+        <div
+          class="bg-surface p-6 rounded-xl border border-border-subtle hover:border-primary/40 hover:shadow-[0_12px_30px_rgba(45,59,142,0.08)] hover:-translate-y-1.5 transition-all duration-300 group reveal delay-200">
+          <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">view_in_ar</span>
+          </div>
+          <h3 class="font-label-bold text-body-md text-on-surface mb-2">Aluminum Bases</h3>
+          <p class="font-body-md text-caption text-on-surface-variant">Cast and wrought aluminum alloys.</p>
+        </div>
+        <div
+          class="bg-surface p-6 rounded-xl border border-border-subtle hover:border-primary/40 hover:shadow-[0_12px_30px_rgba(45,59,142,0.08)] hover:-translate-y-1.5 transition-all duration-300 group reveal delay-300">
+          <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">hardware</span>
+          </div>
+          <h3 class="font-label-bold text-body-md text-on-surface mb-2">Copper Bases</h3>
+          <p class="font-body-md text-caption text-on-surface-variant">Brass, bronze, and pure copper materials.</p>
+        </div>
+        <div
+          class="bg-surface p-6 rounded-xl border border-border-subtle hover:border-primary/40 hover:shadow-[0_12px_30px_rgba(45,59,142,0.08)] hover:-translate-y-1.5 transition-all duration-300 group reveal delay-400">
+          <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">layers</span>
+          </div>
+          <h3 class="font-label-bold text-body-md text-on-surface mb-2">Stainless Steel</h3>
+          <p class="font-body-md text-caption text-on-surface-variant">Austenitic, duplex, and ferritic grades.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Why Choose Us -->
+    <section class="py-section-padding bg-slate-900 border-y border-slate-800 relative overflow-hidden">
+      <!-- Technical Grid Overlay -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_80%,transparent_100%)]"></div>
+      
+      <div class="max-w-container-max-width mx-auto px-4 sm:px-margin-mobile md:px-gutter relative z-10 text-white">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-headline-md text-headline-md mb-4">The JK Metal Lab Advantage</h2>
+          <p class="font-body-lg text-body-lg text-slate-400 max-w-2xl mx-auto">Industry-leading turnaround times backed by
+            rigorous quality control protocols.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="bg-slate-950/40 backdrop-blur-md rounded-xl p-8 border border-slate-800/80 text-center hover:-translate-y-1.5 hover:bg-slate-950/60 hover:border-slate-700/85 transition-all duration-300 reveal delay-100">
+            <div class="font-headline-lg text-headline-lg font-bold mb-2 counter-stat text-blue-400" data-target="500" data-suffix="k+">0k+</div>
+            <div class="font-label-bold text-body-md text-slate-300">Samples Tested</div>
+          </div>
+          <div
+            class="bg-slate-950/40 backdrop-blur-md rounded-xl p-8 border border-slate-800/80 text-center hover:-translate-y-1.5 hover:bg-slate-950/60 hover:border-slate-700/85 transition-all duration-300 reveal delay-200">
+            <div class="font-headline-lg text-headline-lg font-bold mb-2 counter-stat text-orange-400" data-target="24" data-suffix="h" data-type="text">24h</div>
+            <div class="font-label-bold text-body-md text-slate-300">Avg. Turnaround</div>
+          </div>
+          <div
+            class="bg-slate-950/40 backdrop-blur-md rounded-xl p-8 border border-slate-800/80 text-center hover:-translate-y-1.5 hover:bg-slate-950/60 hover:border-slate-700/85 transition-all duration-300 reveal delay-300">
+            <div class="font-headline-lg text-headline-lg font-bold mb-2 counter-stat text-blue-400" data-target="32" data-suffix="+">0+</div>
+            <div class="font-label-bold text-body-md text-slate-300">Elements Detected</div>
+          </div>
+          <div
+            class="bg-slate-950/40 backdrop-blur-md rounded-xl p-8 border border-slate-800/80 text-center hover:-translate-y-1.5 hover:bg-slate-950/60 hover:border-slate-700/85 transition-all duration-300 reveal delay-400">
+            <div class="font-headline-lg text-headline-lg font-bold mb-2 counter-stat text-orange-400" data-target="9000" data-suffix="+">0+</div>
+            <div class="font-label-bold text-body-md text-slate-300">Satisfied Clients</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Process -->
+    <section class="py-section-padding px-4 sm:px-margin-mobile md:px-gutter max-w-3xl mx-auto" id="process">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Streamlined Process</h2>
+      </div>
+      <div class="relative pl-0 md:pl-0">
+        <!-- Vertical Line -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border-subtle md:-translate-x-1/2"></div>
+        <div class="space-y-12 relative">
+          <!-- Step 1 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between group reveal">
+            <div
+              class="absolute left-[-0px] md:relative md:left-auto w-10 h-10 bg-surface border-2 border-primary rounded-full flex items-center justify-center font-bold text-primary group-hover:bg-primary group-hover:text-on-primary group-hover:shadow-[0_0_15px_rgba(45,59,142,0.4)] shadow-sm transition-all duration-300 z-10 flex-shrink-0 mt-1 md:mt-0">
+              1</div>
+            <div class="md:w-[45%] md:text-right mb-4 md:mb-0 pl-16 md:pl-0">
+              <h3 class="font-label-bold text-body-lg text-on-surface">Sample Submission</h3>
+              <p class="font-body-md text-caption text-on-surface-variant mt-2">Send your metal samples via courier or
+                drop them off at our facility. Ensure proper tagging.</p>
+            </div>
+            <div class="md:w-[45%] hidden md:block"></div>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between group reveal">
+            <div class="md:w-[45%] hidden md:block"></div>
+            <div
+              class="absolute left-[-0px] md:relative md:left-auto w-10 h-10 bg-surface border-2 border-primary rounded-full flex items-center justify-center font-bold text-primary group-hover:bg-primary group-hover:text-on-primary group-hover:shadow-[0_0_15px_rgba(45,59,142,0.4)] shadow-sm transition-all duration-300 z-10 flex-shrink-0 mt-1 md:mt-0">
+              2</div>
+            <div class="md:w-[45%] mb-4 md:mb-0 pl-16 md:pl-0">
+              <h3 class="font-label-bold text-body-lg text-on-surface">OES Analysis</h3>
+              <p class="font-body-md text-caption text-on-surface-variant mt-2">Surface preparation followed by precise
+                multi-spark analysis on our SpectroLab equipment.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between group reveal">
+            <div
+              class="absolute left-[-0px] md:relative md:left-auto w-10 h-10 bg-surface border-2 border-primary rounded-full flex items-center justify-center font-bold text-primary group-hover:bg-primary group-hover:text-on-primary group-hover:shadow-[0_0_15px_rgba(45,59,142,0.4)] shadow-sm transition-all duration-300 z-10 flex-shrink-0 mt-1 md:mt-0">
+              3</div>
+            <div class="md:w-[45%] md:text-right mb-4 md:mb-0 pl-16 md:pl-0">
+              <h3 class="font-label-bold text-body-lg text-on-surface">Report Generation</h3>
+              <p class="font-body-md text-caption text-on-surface-variant mt-2">Detailed digital certificate of analysis
+                delivered via email and WhatsApp instantly.</p>
+            </div>
+            <div class="md:w-[45%] hidden md:block"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="bg-slate-50 py-section-padding px-4 sm:px-margin-mobile md:px-gutter border-t border-border-subtle"
+      id="contact">
+      <div class="max-w-container-max-width mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="reveal-left">
+          <h2 class="font-headline-md text-headline-md text-on-surface mb-6">Get in Touch</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Ready to test your materials? Contact us for
+            immediate assistance or visit our lab.</p>
+          <div class="space-y-4">
+            <a class="flex items-center gap-4 p-5 bg-white rounded-xl border border-slate-200 hover:border-whatsapp-green hover:shadow-[0_8px_24px_rgba(37,211,102,0.08)] hover:-translate-y-0.5 transition-all duration-300 group"
+              href="#" target="_blank">
+              <div
+                class="w-12 h-12 bg-whatsapp-green text-on-tertiary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">chat</span>
+              </div>
+              <div class="text-left">
+                <div class="font-label-bold text-body-md text-on-surface">WhatsApp Us</div>
+                <div class="font-body-md text-caption text-on-surface-variant">+91 8511189044</div>
+              </div>
+            </a>
+            <a class="flex items-center gap-4 p-5 bg-white rounded-xl border border-slate-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(45,59,142,0.08)] hover:-translate-y-0.5 transition-all duration-300 group"
+              href="#" target="_blank">
+              <div
+                class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <div class="text-left">
+                <div class="font-label-bold text-body-md text-on-surface">Call Direct</div>
+                <div class="font-body-md text-caption text-on-surface-variant">+91 8511189044</div>
+              </div>
+            </a>
+            <a class="flex items-center gap-4 p-5 bg-white rounded-xl border border-slate-200 hover:border-secondary hover:shadow-[0_8px_24px_rgba(200,40,40,0.08)] hover:-translate-y-0.5 transition-all duration-300 group"
+              href="#" target="_blank">
+              <div
+                class="w-12 h-12 bg-secondary text-on-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">place</span>
+              </div>
+              <div class="text-left">
+                <div class="font-label-bold text-body-md text-on-surface">Visit Lab</div>
+                <div class="font-body-md text-caption text-on-surface-variant">3, GAYATRI INDUSTRIAL PARK, Chandial, Gujarat 382433</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-[0_12px_40px_rgba(15,23,42,0.05)] border-t-4 border-t-primary reveal-right">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 text-left">Quick Inquiry</h3>
+          <p class="font-body-md text-caption text-on-surface-variant mb-6 text-left">Send your requirements and our metallurgy experts will reach out to you.</p>
+          <form class="space-y-4">
+            <div class="text-left">
+              <label class="block font-label-bold text-caption text-on-surface mb-1">Company Name <span class="text-secondary">*</span></label>
+              <div class="relative">
+                <input
+                  class="w-full rounded-lg border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 p-3.5 pl-4 font-body-md text-on-surface transition-all duration-200 outline-none bg-slate-50/50 focus:bg-white"
+                  placeholder="Enter your company name" type="text" required />
+              </div>
+            </div>
+            <div class="text-left">
+              <label class="block font-label-bold text-caption text-on-surface mb-1">Phone Number <span class="text-secondary">*</span></label>
+              <div class="relative">
+                <input
+                  class="w-full rounded-lg border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 p-3.5 pl-4 font-body-md text-on-surface transition-all duration-200 outline-none bg-slate-50/50 focus:bg-white"
+                  placeholder="Enter 10-digit phone number" type="tel" pattern="[0-9]{10}" maxlength="10" required />
+              </div>
+            </div>
+            <div class="text-left">
+              <label class="block font-label-bold text-caption text-on-surface mb-1">Material Type <span class="text-secondary">*</span></label>
+              <div class="relative">
+                <select
+                  class="w-full rounded-lg border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 p-3.5 pl-4 font-body-md text-on-surface transition-all duration-200 outline-none bg-slate-50/50 focus:bg-white appearance-none" required>
+                  <option value="" disabled selected>Select base material</option>
+                  <option>Aluminum Base</option>
+                  <option>Ferrous (Steel/Iron)</option>
+                  <option>Copper Base</option>
+                  <option>Stainless Steel</option>
+                  <option>Other</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                  <span class="material-symbols-outlined text-xl">arrow_drop_down</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-left">
+              <label class="block font-label-bold text-caption text-on-surface mb-1">Message <span class="text-secondary">*</span></label>
+              <div class="relative">
+                <textarea
+                  class="w-full rounded-lg border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 p-3.5 pl-4 font-body-md text-on-surface transition-all duration-200 outline-none bg-slate-50/50 focus:bg-white"
+                  placeholder="Tell us about your testing requirements..." rows="3" required></textarea>
+              </div>
+            </div>
+            <button
+              class="w-full bg-primary text-on-primary py-3.5 rounded-lg font-label-bold text-body-md hover:bg-blue-800 transition-all duration-300 shadow-[0_4px_12px_rgba(45,59,142,0.2)] hover:shadow-[0_6px_20px_rgba(45,59,142,0.3)] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0"
+              type="submit">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer
+    class="bg-slate-950 text-slate-400 font-body-md text-body-md w-full py-16 px-4 sm:px-margin-mobile md:px-gutter border-t border-slate-900 pb-[90px] md:pb-16 relative overflow-hidden">
+    <!-- Technical Grid Overlay -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+
+    <div class="max-w-container-max-width mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+      <div class="space-y-4 text-left">
+        <!-- Brand logo integration -->
+        <div class="flex items-center gap-3">
+          <img src="jk_logo.png" alt="JK Logo" class="h-10 w-10 object-contain rounded-md bg-white p-0.5 border border-slate-800" />
+          <img src="jkmetalab.svg" alt="JK Metal Lab" class="h-9 w-auto" />
+        </div>
+        <p class="text-slate-400 text-caption max-w-xs mt-2">Precision metallurgical testing services utilizing advanced OES technology for reliable B2B industrial solutions.</p>
+        
+        <!-- Trust badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 font-label-bold text-caption">
+          <span class="material-symbols-outlined text-orange-500 text-sm">verified</span>
+          <span>ISO 9001:2015 Certified Lab</span>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <h4 class="font-label-bold text-white mb-4 tracking-wider uppercase text-caption">Quick Links</h4>
+        <ul class="space-y-2 text-caption">
+          <li><a class="hover:text-white transition-colors" href="#home">Home</a></li>
+          <li><a class="hover:text-white transition-colors" href="#machines">Technology</a></li>
+          <li><a class="hover:text-white transition-colors" href="#services">Analytical Services</a></li>
+          <li><a class="hover:text-white transition-colors" href="#process">Streamlined Process</a></li>
+          <li><a class="hover:text-white transition-colors" href="#contact">Get in Touch</a></li>
+        </ul>
+      </div>
+
+      <div class="text-left">
+        <h4 class="font-label-bold text-white mb-4 tracking-wider uppercase text-caption">Contact info</h4>
+        <ul class="space-y-3 text-caption text-slate-400">
+          <li class="flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-orange-500 text-lg">location_on</span>
+            <span>3 JK Metal Lab, GAYATRI INDUSTRIAL PARK,<br>opp. SHRI HARI IND PARK,<br>nr. AMBA HOTEL, Chandial,<br>Gujarat 382433</span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-blue-400 text-lg">call</span>
+            <a href="tel:+918511189044" class="hover:text-white transition-colors">+91 8511189044</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-blue-400 text-lg">mail</span>
+            <a href="mailto:jkmetalab@gmail.com" class="hover:text-white transition-colors">jkmetalab@gmail.com</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-orange-500 text-lg">schedule</span>
+            <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-left">
+        <h4 class="font-label-bold text-white mb-4 tracking-wider uppercase text-caption">Location Map</h4>
+        <div class="rounded-xl overflow-hidden border border-slate-800 h-40 shadow-lg shadow-black/20">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.8875!2d72.833730!3d22.997181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2d5f5f5f5f5f%3A0x0!2sJK%20Metal%20Lab!5e0!3m2!1sen!2sin!4v1715870400000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+    <div
+      class="max-w-container-max-width mx-auto mt-12 pt-8 border-t border-slate-900 text-slate-500 text-caption text-center md:text-left relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>© 2026 JK Metal Lab. All Rights Reserved.</div>
+      <div class="flex gap-4">
+        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <span>•</span>
+        <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+  <!-- BottomNavBar (Mobile Only) -->
+  <div
+    class="fixed bottom-0 w-full z-50 flex md:hidden bg-surface dark:bg-surface-container-highest border-t border-border-subtle dark:border-outline shadow-[0_-4px_24px_rgba(0,0,0,0.06)] font-label-bold text-label-bold">
+    <a class="bg-whatsapp-green text-on-tertiary flex-1 flex flex-col items-center justify-center py-3 active:opacity-90 transition-all duration-200 active:scale-95"
+      href="#" id="mobileWhatsApp">
+      <span class="material-symbols-outlined mb-1">chat</span>
+      <span>WhatsApp</span>
+    </a>
+    <a class="bg-primary text-on-primary flex-1 flex flex-col items-center justify-center py-3 active:opacity-90 transition-all duration-200 active:scale-95 border-l border-white/20"
+      href="tel:+918511189044" id="mobileCall">
+      <span class="material-symbols-outlined mb-1">phone</span>
+      <span>Call Now</span>
+    </a>
+    <a class="bg-secondary text-on-secondary flex-1 flex flex-col items-center justify-center py-3 active:opacity-90 transition-all duration-200 active:scale-95 border-l border-white/20"
+      href="#" id="mobileMap">
+      <span class="material-symbols-outlined mb-1">map</span>
+      <span>Map</span>
+    </a>
+  </div>
+
+  <!-- Business Constants & JavaScript -->
+  <script>
+    // Business Information from constants.js
+    const BUSINESS_INFO = {
+      name: "JK Metal Lab",
+      tagline: "Precision Metal Analysis You Can Trust",
+      phone: "+91 8511189044",
+      whatsapp: "918511189044",
+      email: "jkmetalab@gmail.com",
+      address: "03 JK Metal Lab, GAYATRI INDUSTRIAL PARK, opp. SHRI HARI IND PARK, nr. AMBA HOTEL, Chandial, Gujarat 382433",
+      hours: "Mon-Sat: 9 AM - 7 PM | Sun: By Appointment",
+      mapsLink: "https://maps.google.com/?q=22.997181,72.833730"
+    };
+
+    const WHATSAPP_MESSAGE = "Hi JK Metal Lab, I need metal spectro testing service. Please share details and pricing.";
+
+    // Initialize all functions when DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      initializeContactInfo();
+      initializeButtons();
+      initializeForm();
+      initializeNavigation();
+      initializeScrollReveal();
+    });
+
+    // Initialize Contact Information
+    function initializeContactInfo() {
+      // Update all WhatsApp links
+      const whatsappElements = document.querySelectorAll('[href*="whatsapp"], .bg-whatsapp-green');
+      whatsappElements.forEach(el => {
+        if (el.tagName === 'A') {
+          el.href = `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+          el.target = '_blank';
+        }
+      });
+
+      // Update mobile WhatsApp button
+      const mobileWhatsApp = document.getElementById('mobileWhatsApp');
+      if (mobileWhatsApp) {
+        mobileWhatsApp.href = `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+        mobileWhatsApp.target = '_blank';
+      }
+
+      // Update all phone links
+      const phoneElements = document.querySelectorAll('[href^="tel:"]');
+      phoneElements.forEach(el => {
+        el.href = `tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`;
+      });
+
+      // Update map links
+      const mapLinks = document.querySelectorAll('[href*="maps"], #mobileMap');
+      mapLinks.forEach(el => {
+        if (el.id !== 'mobileMap') return;
+        el.href = BUSINESS_INFO.mapsLink;
+        el.target = '_blank';
+      });
+
+      // Find and update contact info display text in contact section
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        const cards = contactSection.querySelectorAll('a.flex');
+        if (cards.length >= 3) {
+          // WhatsApp Us card
+          const waText = cards[0].querySelector('.text-on-surface-variant');
+          if (waText) waText.textContent = BUSINESS_INFO.phone;
+          
+          // Call Direct card
+          const callText = cards[1].querySelector('.text-on-surface-variant');
+          if (callText) callText.textContent = BUSINESS_INFO.phone;
+          
+          // Visit Lab card
+          const addressText = cards[2].querySelector('.text-on-surface-variant');
+          if (addressText) addressText.textContent = BUSINESS_INFO.address;
+        }
+      }
+    }
+
+    // Initialize Button Handlers
+    function initializeButtons() {
+      // Get Free Quote button - scroll to contact
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        if (btn.textContent.includes('Get a Free Quote')) {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+        // View Testing Standards - scroll to machines
+        if (btn.textContent.includes('View Testing Standards')) {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('machines').scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+      });
+
+      // Header Call button
+      const headerButtons = document.querySelector('header').querySelectorAll('button');
+      headerButtons.forEach(btn => {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon && icon.textContent.trim() === 'call') {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = `tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`;
+          });
+        }
+        if (icon && icon.textContent.trim() === 'location_on') {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.open(BUSINESS_INFO.mapsLink, '_blank');
+          });
+        }
+      });
+
+      // Contact section - WhatsApp, Call, Map buttons
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        const contactLinks = contactSection.querySelectorAll('a.flex');
+        contactLinks.forEach((link, idx) => {
+          if (idx === 0) {
+            link.href = `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+            link.target = '_blank';
+          } else if (idx === 1) {
+            link.href = `tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`;
+          } else if (idx === 2) {
+            link.href = BUSINESS_INFO.mapsLink;
+            link.target = '_blank';
+          }
+        });
+      }
+
+      // Header WhatsApp button
+      const headerWhatsAppBtn = document.querySelector('header a.bg-whatsapp-green');
+      if (headerWhatsAppBtn) {
+        headerWhatsAppBtn.href = `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+        headerWhatsAppBtn.target = '_blank';
+      }
+    }
+
+    // Initialize Form Handler
+    function initializeForm() {
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const companyInput = form.querySelector('input[type="text"]');
+          const phoneInput = form.querySelector('input[type="tel"]');
+          const materialSelect = form.querySelector('select');
+          const messageTextarea = form.querySelector('textarea');
+
+          const companyName = companyInput ? companyInput.value.trim() : '';
+          const phoneNumber = phoneInput ? phoneInput.value.trim() : '';
+          const materialType = materialSelect ? materialSelect.value : '';
+          const message = messageTextarea ? messageTextarea.value.trim() : '';
+
+          // Validate phone number - must be exactly 10 digits
+          if (!phoneNumber || phoneNumber.length !== 10 || !/^[0-9]{10}$/.test(phoneNumber)) {
+            alert('Please enter a valid 10-digit phone number');
+            return;
+          }
+
+          if (!companyName || !materialType || !message) {
+            alert('Please fill in all required fields');
+            return;
+          }
+
+          // Create WhatsApp message with form data
+          const fullMessage = `Hi JK Metal Lab,\n\n*Company:* ${companyName}\n*Phone:* ${phoneNumber}\n*Material Type:* ${materialType}\n\n*Message:* ${message}\n\nPlease provide testing details and pricing.`;
+
+          // Send via WhatsApp
+          window.open(`https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(fullMessage)}`, '_blank');
+
+          // Reset form
+          form.reset();
+          alert('Inquiry submitted successfully! Prefilled message will open in WhatsApp.');
+        });
+      }
+    }
+
+    // Initialize Navigation Smooth Scrolling
+    function initializeNavigation() {
+      const navLinks = document.querySelectorAll('nav a, a[href*="#"]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#') && href !== '#') {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+    }
+
+    // Mobile map button
+    const mobileMap = document.getElementById('mobileMap');
+    if (mobileMap) {
+      mobileMap.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(BUSINESS_INFO.mapsLink, '_blank');
+      });
+    }
+
+    // Scroll Reveal Observer
+    function initializeScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      revealElements.forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
+
+    // Initialize Counter Animation
+    function initializeCounterAnimation() {
+      const counters = document.querySelectorAll('.counter-stat');
+      let hasAnimated = false;
+
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            animateCounters();
+          }
+        });
+      }, observerOptions);
+
+      // Start observing the first counter
+      if (counters.length > 0) {
+        observer.observe(counters[0].closest('.grid'));
+      }
+
+      function animateCounters() {
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-target'));
+          const suffix = counter.getAttribute('data-suffix') || '';
+          const duration = 2000; // 2 seconds
+          const steps = 60;
+          const stepDuration = duration / steps;
+          let currentStep = 0;
+
+          const timer = setInterval(() => {
+            currentStep++;
+            const progress = currentStep / steps;
+            const currentValue = Math.floor(target * progress);
+
+            counter.textContent = currentValue + suffix;
+
+            if (currentStep >= steps) {
+              clearInterval(timer);
+              counter.textContent = target + suffix;
+            }
+          }, stepDuration);
+        });
+      }
+    }
+
+    // Initialize counter animation when DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(initializeCounterAnimation, 500);
+    });
+  </script>
+
+</body>
+
+</html>
